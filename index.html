@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amorepacific Survey Logic Model</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@300;400;500;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, #f8fafe 0%, #e8f2ff 50%, #d4e7ff 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #2c3e50;
+        }
+        
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 50px;
+            box-shadow: 0 15px 40px rgba(44, 62, 80, 0.08);
+            border: 1px solid rgba(52, 152, 219, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .brand-header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .brand-header::before {
+            content: '🌸';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5em;
+            opacity: 0.3;
+        }
+        
+        .brand-header h1 {
+            color: #2c3e50;
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            font-weight: 500;
+            font-family: 'Noto Serif KR', serif;
+            letter-spacing: 2px;
+        }
+        
+        .brand-header .korean-text {
+            color: #3498db;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+        
+        .brand-header p {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            font-weight: 300;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .survey-link {
+            margin: 20px 0;
+        }
+        
+        .survey-link a {
+            display: inline-block;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .survey-link a:hover {
+            background: linear-gradient(135deg, #2980b9, #1a252f);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        }
+        
+        .brand-colors {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .color-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .amore-blue { background: #3498db; }
+        .pacific-blue { background: #2c3e50; }
+        .camellia-gold { background: #f39c12; }
+        
+        .logic-model {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+        
+        .logic-box {
+            background: linear-gradient(145deg, #ffffff, #f8fafe);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.08);
+            border-top: 4px solid;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logic-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, currentColor, transparent);
+            opacity: 0.3;
+        }
+        
+        .logic-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(52, 152, 219, 0.15);
+        }
+        
+        .inputs { 
+            border-top-color: #3498db;
+            color: #3498db;
+        }
+        .activities { 
+            border-top-color: #2c3e50;
+            color: #2c3e50;
+        }
+        .outputs { 
+            border-top-color: #e74c3c;
+            color: #e74c3c;
+        }
+        .outcomes { 
+            border-top-color: #f39c12;
+            color: #f39c12;
+        }
+        
+        .logic-box h3 {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            font-weight: 500;
+            font-family: 'Noto Serif KR', serif;
+            letter-spacing: 1px;
+        }
+        
+        .logic-box ul {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .logic-box li {
+            color: #555;
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95em;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+        
+        .logic-box li:before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            font-size: 1em;
+            opacity: 0.7;
+        }
+        
+        .korean-insight {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .korean-insight::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .korean-insight h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            font-family: 'Noto Serif KR', serif;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .korean-insight p {
+            font-size: 1.1em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+            font-weight: 300;
+        }
+        
+        .timeline {
+            margin-top: 50px;
+        }
+        
+        .timeline h2 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 40px;
+            font-weight: 400;
+            font-family: 'Noto Serif KR', serif;
+            letter-spacing: 1px;
+        }
+        
+        .timeline-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            border-radius: 12px;
+            padding: 40px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            right: 5%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-50%);
+        }
+        
+        .week {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            min-width: 200px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+        
+        .week:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.05);
+        }
+        
+        .week h4 {
+            font-size: 1.2em;
+            margin-bottom: 12px;
+            font-weight: 500;
+            font-family: 'Noto Serif KR', serif;
+        }
+        
+        .week p {
+            font-size: 0.95em;
+            opacity: 0.9;
+            line-height: 1.4;
+            font-weight: 300;
+        }
+        
+        .arrow {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.8em;
+            font-weight: bold;
+            z-index: 1;
+        }
+        
+        .beauty-philosophy {
+            margin-top: 50px;
+            background: linear-gradient(135deg, #f8fafe, #e8f2ff);
+            border-radius: 12px;
+            padding: 40px;
+            border: 1px solid rgba(52, 152, 219, 0.1);
+        }
+        
+        .beauty-philosophy h3 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+            font-weight: 400;
+            font-family: 'Noto Serif KR', serif;
+            letter-spacing: 1px;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+        
+        .tool-item {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.06);
+            border-left: 4px solid #3498db;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .tool-item:nth-child(2) { border-left-color: #2c3e50; }
+        .tool-item:nth-child(3) { border-left-color: #e74c3c; }
+        .tool-item:nth-child(4) { border-left-color: #f39c12; }
+        
+        .tool-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(52, 152, 219, 0.12);
+        }
+        
+        .tool-item h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 500;
+            font-family: 'Noto Serif KR', serif;
+            font-size: 1.2em;
+        }
+        
+        .tool-item p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+        
+        .target-audience {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .target-audience h4 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            font-family: 'Noto Serif KR', serif;
+        }
+        
+        .target-audience p {
+            opacity: 0.95;
+            font-weight: 300;
+        }
+        
+        @media (max-width: 768px) {
+            .logic-model {
+                grid-template-columns: 1fr;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .arrow {
+                transform: rotate(90deg);
+            }
+            
+            .brand-header h1 {
+                font-size: 2.2em;
+            }
+            
+            .container {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="brand-header">
+            <h1>아모레퍼시픽<br>AMOREPACIFIC</h1>
+            <div class="korean-text">아름다운 아시안 뷰티의 지혜와 혁신<br>Beautiful Asian Beauty Wisdom & Innovation</div>
+            <p>Employee Innovation Survey Logic Model</p>
+            <div class="survey-link">
+                <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=bI2nppp5ukOCGtWh9fD3Zx9iA-3BaXRFkaEHD-LVrOBURjM4NkFUMDMzSUpJR0pWREgyOFUyWkVMWi4u" target="_blank">
+                    📋 Access Employee Survey
+                </a>
+            </div>
+            <div class="brand-colors">
+                <div class="color-dot amore-blue" title="Amore Blue - Soft & Gentle"></div>
+                <div class="color-dot pacific-blue" title="Pacific Blue - Cool & Strong"></div>
+                <div class="color-dot camellia-gold" title="Camellia Heritage"></div>
+            </div>
+        </div>
+        
+        <div class="korean-insight">
+            <h3>🌸 한국의 전통 지혜와 현대적 혁신의 조화<br>Traditional Korean Beauty Wisdom meets Modern Innovation</h3>
+            <p>한방 유산과 첨단 기술 통합<br>Hanbang Heritage & Advanced Technology Integration</p>
+        </div>
+        
+        <div class="logic-model">
+            <div class="logic-box inputs">
+                <h3>🔧 INPUTS</h3>
+                <ul>
+                    <li>R&D Research Team (Product Development)</li>
+                    <li>Data & Analytics Specialists</li>
+                    <li>Survey Platform (Google Forms)</li>
+                    <li>Communication Channels (Slack, Teams, Social Media)</li>
+                    <li>Analysis Tools (Power BI, Tableau)</li>
+                    <li>Time & Human Resources</li>
+                </ul>
+            </div>
+            
+            <div class="logic-box activities">
+                <h3>⚡ ACTIVITIES</h3>
+                <ul>
+                    <li>Design 20-question mixed-method survey</li>
+                    <li>Social media-based distribution</li>
+                    <li>Employee feedback collection</li>
+                    <li>Quantitative data analysis</li>
+                    <li>Qualitative response processing</li>
+                    <li>Visualization dashboard creation</li>
+                </ul>
+            </div>
+            
+            <div class="logic-box outputs">
+                <h3>📊 OUTPUTS</h3>
+                <ul>
+                    <li>Employee satisfaction scores</li>
+                    <li>Innovation barriers identified</li>
+                    <li>Data tool utilization insights</li>
+                    <li>Collaboration metrics analysis</li>
+                    <li>Improvement recommendations</li>
+                    <li>Department-specific insights</li>
+                </ul>
+            </div>
+            
+            <div class="logic-box outcomes">
+                <h3>🎯 OUTCOMES</h3>
+                <ul>
+                    <li>Enhanced R&D collaboration</li>
+                    <li>Improved data utilization</li>
+                    <li>Increased employee satisfaction</li>
+                    <li>Shortened innovation cycles</li>
+                    <li>Better decision-making quality</li>
+                    <li>Global leadership positioning</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="target-audience">
+            <h4>🎭 Target Demographics: Women 21-60+ years, K-Beauty Trendsetters & Professionals</h4>
+            <p>Focus on Asian beauty wisdom enthusiasts and modern innovation adopters</p>
+        </div>
+        
+        <div class="timeline">
+            <h2>📅 5-Week Implementation Timeline</h2>
+            <div class="timeline-container">
+                <div class="week">
+                    <h4>Week 1</h4>
+                    <p>Survey finalization and multi-language setup</p>
+                </div>
+                <div class="arrow">→</div>
+                <div class="week">
+                    <h4>Week 2</h4>
+                    <p>Distribution and data collection phase</p>
+                </div>
+                <div class="arrow">→</div>
+                <div class="week">
+                    <h4>Week 3</h4>
+                    <p>Data export and initial analysis</p>
+                </div>
+                <div class="arrow">→</div>
+                <div class="week">
+                    <h4>Week 4</h4>
+                    <p>Dashboard creation and comprehensive reporting</p>
+                </div>
+                <div class="arrow">→</div>
+                <div class="week">
+                    <h4>Week 5</h4>
+                    <p>Leadership presentation and action planning</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="beauty-philosophy">
+            <h3>🛠️ Amorepacific Technology Stack & Beauty Philosophy</h3>
+            <div class="tools-grid">
+                <div class="tool-item">
+                    <h4>Google Forms + Social Media</h4>
+                    <p>Survey distribution and data collection platform with social media integration for wider reach</p>
+                </div>
+                <div class="tool-item">
+                    <h4>Power BI / Tableau</h4>
+                    <p>Advanced analytics and dashboard creation for real-time insights and innovation KPIs</p>
+                </div>
+                <div class="tool-item">
+                    <h4>Hanbang Wisdom + Modern Science</h4>
+                    <p>Traditional Korean beauty wisdom fusion with cutting-edge technology and research</p>
+                </div>
+                <div class="tool-item">
+                    <h4>Global K-Beauty Network</h4>
+                    <p>TikTok, Instagram, Xiaohongshu integration for comprehensive consumer trend monitoring</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
