@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+<!-- Sets the viewport to make the website responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skills</title>
+    <!-- Import Montserrat font (weights 400 & 700) from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background-color: #000;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+    }
+        /* Style for h1 and h2 headings: sets color and top margin */
+    h1, h2 {
+        color: #00ffe0;
+        margin-top: 40px;
+    }
+        /* Navbar */
+        .navbar {
+            position: fixed; /* Keeps the navbar always on top */
+            top: 20px;
+            right: 40px;
+            display: flex;
+            gap: 20px;
+            font-weight: bold;
+            z-index: 1000;
+        }
+        /* Navbar links */
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        /* Navbar link hover effect */
+        .navbar a:hover {
+            color: #00ffe0;
+        }
+        /* Skills Table */
+        .skills-table {
+            margin: 40px auto;
+            width: 60%;
+            border-collapse: collapse;
+            font-size: 1.1em;
+            color: #fff;
+        }
+        /* Table styling */
+        .skills-table th, .skills-table td {
+            border: 1px solid #00ffe0;
+            padding: 12px 15px;
+            text-align: center;
+        }
+        /* Table header styling */
+        .skills-table th {
+            background-color: #00ffe0;
+            color: #000;
+        }
+        /* Table row hover effect */
+        .skills-table tr:nth-child(even) {
+            background-color: #1a1a1a;
+        }
+        /* Table row hover effect */
+        .skills-table tr:hover {
+            background-color: #333;
+        }
+        /* Visual Progress Dots */
+        .dots {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+        /* Dot styling */
+        .dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #333;
+            border: 2px solid #00ffe0;
+        }
+        /* Filled dot styling */
+        .dot.filled {
+            background-color: #00ffe0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skills Section -->
+<h2>Analytical & Technical Skills</h2>
+<table class="skills-table">
+    <tr>
+        <th>Language</th>
+        <th>Expertise</th>
+        <th>Years of Experience</th>
+    </tr>
+    <tr>
+        <td>Python</td>
+        <td>
+            <div class="dots">
+                <div class="dot filled"></div><div class="dot filled"></div>
+                <div class="dot filled"></div><div class="dot filled"></div>
+                <div class="dot"></div>
+            </div>
+        </td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>SQL</td>
+        <td>
+            <div class="dots">
+                <div class="dot filled"></div><div class="dot filled"></div>
+                <div class="dot filled"></div><div class="dot filled"></div>
+                <div class="dot filled"></div>
+            </div>
+        </td>
+        <td>0.5</td>
+    </tr>
+    <tr>
+        <td>HTML</td>
+        <td>
+            <div class="dots">
+                <div class="dot filled"></div><div class="dot filled"></div>
+                <div class="dot filled"></div><div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </td>
+        <td>0.1</td>
+    </tr>
+    <tr>
+        <td>R</td>
+        <td>
+            <div class="dots">
+                <div class="dot filled"></div><div class="dot filled"></div>
+                <div class="dot filled"></div><div class="dot filled"></div>
+                <div class="dot"></div>
+            </div>
+        </td>
+        <td>0.5</td>
+    </tr>
+    <tr>
+        <td>Tableau Dashboards</td>
+        <td>
+            <div class="dots">
+                <div class="dot filled"></div><div class="dot filled"></div>
+                <div class="dot"></div><div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </td>
+        <td>0.1</td>
+    </tr>
+</table>
+    <!-- Communication Skills Table -->
+<h2>Communication Skills</h2>
+<table class="skills-table">
+    <tr>
+        <th>Language</th>
+        <th>Level</th>
+    </tr>
+    <tr>
+        <td>Portuguese</td>
+        <td>Native / Fluent</td>
+    </tr>
+    <tr>
+        <td>English</td>
+        <td>Fluent</td>
+    </tr>
+    <tr>
+        <td>Spanish</td>
+        <td>Intermediate / Advanced</td>
+    </tr>
+    <tr>
+        <td>Korean</td>
+        <td>Basic / Intermediate</td>
+    </tr>
+</table>
+    <!-- Soft Skills Table -->
+<h2>Soft Skills</h2>
+<table class="skills-table">
+    <tr>
+        <th>Skill</th>
+        <th>Proficiency</th>
+        <th>Context of Use</th>
+        <th>Demonstrated In</th>
+    </tr>
+    <tr>
+        <td>Problem Solving</td>
+        <td>Advanced</td>
+        <td>Process Improvement</td>
+        <td>Financial Analyst</td>
+    </tr>
+    <tr>
+        <td>Adaptability</td>
+        <td>Intermediate</td>
+        <td>Fast-Paced Environments</td>
+        <td>Data Intern</td>
+    </tr>
+    <tr>
+        <td>Teamwork</td>
+        <td>Advanced</td>
+        <td>Collaboration</td>
+        <td>Administrative Office Manager</td>
+    </tr>
+    <tr>
+        <td>Analytical Thinking</td>
+        <td>Intermediate</td>
+        <td>Business Analysis</td>
+        <td>Financial Analyst</td>
+    </tr>
+</table>
+    <!-- Business & Financial Skills Table -->
+<h2>Business & Financial Skills</h2>
+<table class="skills-table">
+    <tr>
+        <th>Skill</th>
+        <th>Proficiency</th>
+        <th>Demonstrated In</th>
+    </tr>
+    <tr>
+        <td>Financial Planning & Budgeting</td>
+        <td>Advanced</td>
+        <td>Administrative Office Manager</td>
+    </tr>
+    <tr>
+        <td>Cost Optimization</td>
+        <td>Advanced</td>
+        <td>Financial Analyst</td>
+    </tr>
+    <tr>
+        <td>Business Analysis</td>
+        <td>Intermediate</td>
+        <td>Financial Analyst</td>
+    </tr>
+    <tr>
+        <td>Financial Reporting</td>
+        <td>Intermediate</td>
+        <td>Financial Analyst</td>
+    </tr>
+    <tr>
+        <td>Process Improvement</td>
+        <td>Intermediate</td>
+        <td>Administrative Office Manager</td>
+    </tr>
+</table>
+    <!-- Legal & Compliance Skills Table -->
+<h2>Legal & Compliance Skills</h2>
+<table class="skills-table">
+    <tr>
+        <th>Skill</th>
+        <th>Proficiency</th>
+        <th>Demonstrated In</th>
+    </tr>
+    <tr>
+        <td>Contract Drafting & Review</td>
+        <td>Advanced</td>
+        <td>Legal Specialist</td>
+    </tr>
+    <tr>
+        <td>Legal Compliance</td>
+        <td>Advanced</td>
+        <td>Legal Specialist</td>
+    </tr>
+    <tr>
+        <td>Risk Management</td>
+        <td>Intermediate</td>
+        <td>Legal Specialist</td>
+    </tr>
+    <tr>
+        <td>Regulatory Documentation</td>
+        <td>Advanced</td>
+        <td>Legal Specialist</td>
+    </tr>
+    <tr>
+        <td>Governance Processes</td>
+        <td>Intermediate</td>
+        <td>Administrative Office Manager</td>
+    </tr>
+</table>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="edu.html">Education</a>
+        <a href="exp.html">Experience</a>
+        <a href="skills.html">Skills</a>
+        <a href="certification.html">Certification</a>
+        <a href="volunteer.html">Volunteer</a>
+    </div>
+</body>
+</html>
